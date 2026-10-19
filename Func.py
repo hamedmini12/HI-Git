@@ -55,3 +55,4 @@ def make_Dictionary(Iterable: list | tuple | str) -> dict:
     return main_dict
 
 # kodo sher
+momo = "hamed"
