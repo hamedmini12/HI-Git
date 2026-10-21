@@ -1,40 +1,6 @@
-from re import fullmatch
-
 import random
-
-
-def shomenu(menu: dict) -> str:
-    """It takes a dictionary and displays the key-value 
-    pairs in an organized manner in the output.
-
-    Args:
-        menu (dict):
-
-    Returns:
-        str:
-    """
-    for key, value in menu.items():
-        print(f"{key} : {value}")
-
-
-def isvalid(value: str, pattern: str) -> bool:
-    """It takes a value and a pattern,
-     and returns `true` if the value matches the pattern.
-
-    Args:
-        value (str): can use for names numbers or ...
-        pattern (str): Regex pattern (r"[a-zA-Z]+") 
-
-    Returns:
-        bool: true | false
-    """
-    from re import fullmatch
-
-    if fullmatch(pattern, value):
-        return True
-    else:
-        return False
-
+from Func import isvalid
+from Func import shomenu
 
 def random_numbers(start: int = 1000, stop: int = 9999) -> str:
     try:

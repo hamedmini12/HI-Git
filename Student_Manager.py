@@ -1,31 +1,13 @@
-from re import fullmatch
-
-def isvalid(value: str, pattern: str) -> bool:
-    """It takes a value and a pattern,
-     and returns `true` if the value matches the pattern.
-
-    Args:
-        value (str): can use for names numbers or ...
-        pattern (str): Regex pattern (r"[a-zA-Z]+") 
-
-    Returns:
-        bool: true | false
-    """
-    from re import fullmatch
-
-    if fullmatch(pattern, value):
-        return True
-    else:
-        return False
-
+from Func import isvalid
+from Func import shomenu
 students = {
     
 }
 
 while True:
     
-    number_of_student = input("How many students do you have? (Enter \"view\" to see the results): ")
-    if number_of_student == "view":
+    number_of_student = input("How many students do you have? (Enter \"v\"(veiw) to see the results): ")
+    if number_of_student == "v":
         break
     elif isvalid(number_of_student, r"[1-9]+"):
         
@@ -54,6 +36,7 @@ while True:
             while True:
                 student_Math_grade = input("Math grade: ")
                 if isvalid(student_Math_grade, r"(?:[1-9]|1[0-9]|20)"):
+                    student_Math_grade = int(student_Math_grade)
                     break
                 else:
                     print("Error in input data","\n")
@@ -61,6 +44,7 @@ while True:
             while True:
                 student_Literature_grade = input("Literature grade: ")
                 if isvalid(student_Literature_grade, r"(?:[1-9]|1[0-9]|20)"):
+                    student_Literature_grade = int(student_Literature_grade)
                     break
                 else:
                     print("Error in input data","\n")
@@ -68,6 +52,7 @@ while True:
             while True:
                 student_physics_grade = input("Physics grade: ")
                 if isvalid(student_physics_grade, r"(?:[1-9]|1[0-9]|20)"):
+                    student_physics_grade = int(student_physics_grade)
                     break
                 else:
                     print("Error in input data","\n")
@@ -85,3 +70,19 @@ while True:
     else:   
         print("Error in input data","\n")
         
+number = 1
+for i in range(int(numbers)):
+    moadel:list = []   
+    moadel.append(students[number].get("Math grade"))
+    moadel.append(students[number].get("Literature grade"))
+    moadel.append(students[number].get("Physics grade"))
+    len_moadel = len(moadel)
+    moadel = sum(moadel)
+    average = moadel / len_moadel
+    students[number].setdefault("moadel", average)
+    number += 1
+    
+number = 1
+for i in range(numbers):
+    shomenu(students[number])
+    number += 1
